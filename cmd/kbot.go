@@ -15,8 +15,9 @@ import (
 
 var(
 	//teletoken bot
-	Teletoken = os.Getenv("TELE_TOKKEN")
+	TeleToken = os.Getenv("TELE_TOKEN")
 )
+
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
 	Use:   "kbot",
@@ -28,12 +29,13 @@ and usage of using your command. For example:
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
+
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("kbot started", appVersion )
+		fmt.Println("kbot  started", appVersion )
 
 		kbot, err := telebot.NewBot(telebot.Settings{
 			URL:         "",
-			Token:       Teletoken,
+			Token:       "6154962959:AAG1ZfJMlaFV20lTqFrb0BQwiAsqdz-DtgU" ,
 			Poller:      &telebot.LongPoller{Timeout: 10 * time.Second},
 			
 		})
@@ -45,6 +47,13 @@ to quickly create a Cobra application.`,
 
 		kbot.Handle(telebot.OnText, func(m telebot.Context) error {
 				log.Print(m.Message().Payload, m.Text())
+				payload:=m.Message().Payload
+				switch payload {
+				case "hello":
+					err= m.Send(fmt.Sprintf("hello i'm kbot %s",appVersion)) 
+					
+				}
+				 
 
 				return err
 		})
