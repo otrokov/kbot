@@ -1,10 +1,20 @@
 APP := $(shell basename $(shell git remote get-url origin))
-REGISTRY := otrok
+REGISTRY := otrokovanton
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux 
+TARGETARCH=arm64
+linux:
+	${MAKE} build TARGETOS=linux TARGETARCH=${TARGETARCH}
+
+macos:
+	${MAKE} build TARGETOS=darwin TARGETARCH=${TARGETARCH}
+
+windows:
+	${MAKE} build TARGETOS=windows TARGETARCH=${TARGETARCH}
 
 format:
 	gofmt -s -w ./
+
 
 lint:
 	golint
@@ -26,4 +36,5 @@ build: format
 
 clean:
 	rm -rf kbot
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
