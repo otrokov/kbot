@@ -1,5 +1,5 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
+Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 */
 package cmd
 
@@ -13,56 +13,60 @@ import (
 	telebot "gopkg.in/telebot.v3"
 )
 
-var(
-	//teletoken bot
+var (
+	// TeleToken bot
 	TeleToken = os.Getenv("TELE_TOKEN")
 )
 
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
-	Use:   "kbot",
+	Use:     "kbot",
 	Aliases: []string{"start"},
-	Short: "A brief description of your command",
+	Short:   "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
-
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("kbot  started", appVersion )
+
+		fmt.Printf("kbot %s started", appVersion)
 
 		kbot, err := telebot.NewBot(telebot.Settings{
-			URL:         "",
-			Token:       "6154962959:AAG1ZfJMlaFV20lTqFrb0BQwiAsqdz-DtgU" ,
-			Poller:      &telebot.LongPoller{Timeout: 10 * time.Second},
-			
+			URL:    "",
+			Token:  "6154962959:AAG1ZfJMlaFV20lTqFrb0BQwiAsqdz-DtgU",
+			Poller: &telebot.LongPoller{Timeout: 10 * time.Second},
 		})
 
-		if err !=nil{
-			log.Fatal("Please check TELE_TOKEN env_variable. ", err)
+		if err != nil {
+			log.Fatalf("Plaese check TELE_TOKEN env variable. %s", err)
 			return
 		}
 
-		kbot.Handle(telebot.OnText, func(m telebot.Context) error {
-				log.Print(m.Message().Payload, m.Text())
-				payload:=m.Message().Payload
-				switch payload {
-				case "hello":
-					err= m.Send(fmt.Sprintf("hello i'm kbot %s",appVersion)) 
-				case "test" :
-					err= m.Send((fmt.Sprintf("test")))
-					
-				}
-				 
-
-				return err
-		})
 		
-		kbot.Start()
-	
 
+		
+
+		kbot.Handle(telebot.OnText, func(m telebot.Context) error {
+
+			log.Print(m.Message().Payload, m.Text())
+			payload := m.Message().Payload
+
+			switch payload {
+			case "hello":
+				err = m.Send(fmt.Sprintf("Hello I'm Kbot %s!", appVersion))
+
+			
+
+			
+			}
+
+			return err
+
+		})
+
+		kbot.Start()
 	},
 }
 
