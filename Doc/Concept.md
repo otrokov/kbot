@@ -7,7 +7,7 @@
 |    **k3d**   |k3d is a lightweight tool that allows you to run Kubernetes clusters in Docker. It provides a simple way to set up and manage local Kubernetes environments for development, testing, or learning purposes. The "k3d" stands for "Kubernetes 3D" and refers to the three "D"s: Docker, Docker Compose, and Kubernetes.|**Lightweight and easy to use:** k3d is designed to be lightweight and user-friendly. **Portability:** k3d is platform-agnostic and can be used on Linux, macOS, and Windows. **Docker Compose integration:** k3d integrates seamlessly with Docker Compose, allowing you to define your cluster configuration using a Compose file. **Local development and testing:** k3d provides an ideal environment for local development and testing of Kubernetes-based applications. **Scalability:** k3d allows you to scale your cluster by adding or removing nodes dynamically. | **Dependency on Docker:** k3d relies on Docker to create and manage Kubernetes clusters. **Network limitations:** Networking in a k3d cluster might have some limitations compared to a full-fledged Kubernetes cluster. 
 
 # Demo video
-
+[![asciicast](https://asciinema.org/a/586130.svg)](https://asciinema.org/a/586130)
 
 # Recomendation 
 **k3d can be a recommended tool for startups due to the following reasons:**
