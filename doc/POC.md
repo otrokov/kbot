@@ -19,7 +19,7 @@ The API server can then be accessed using https://localhost:8080
 
 
 <img  alt="image" src="https://github.com/otrokov/kbot/blob/178f9a6677ce359e366542f92e97825a9cf6f2d2/doc/img/argo0.png">
-https://github.com/otrokov/kbot/tree/178f9a6677ce359e366542f92e97825a9cf6f2d2/doc/img
+
 
 ## Get password
 To login you’ll need to obtain the admin password and URL for the Argo CD instance:
@@ -31,6 +31,7 @@ echo $argoPass
 
 Access the Argo CD  by logging in with the username **admin** and the password extracted in the previous step.
 
+<img  alt="image" src="https://github.com/otrokov/kbot/blob/178f9a6677ce359e366542f92e97825a9cf6f2d2/doc/img/argo.png">
 
 
 
