@@ -10,13 +10,16 @@ Application definitions, configurations, and environments should be declarative 
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
-## port
+## Port forwarding
 
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
+The API server can then be accessed using https://localhost:8080
 
-## pass
+![ArgoCD](/home/otrokovanton/argo.png)
+
+## Get password
 To login you’ll need to obtain the admin password and URL for the Argo CD instance:
 
 ```bash
@@ -29,3 +32,6 @@ Access the Argo CD  by logging in with the username **admin** and the password e
 
 
 
+
+
+[def]: /home/otrokovanton/argo.png "ArgoCD"
