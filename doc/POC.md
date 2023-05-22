@@ -18,7 +18,8 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 The API server can then be accessed using https://localhost:8080
 
 
-
+<img  alt="image" src="https://github.com/otrokov/kbot/blob/178f9a6677ce359e366542f92e97825a9cf6f2d2/doc/img/argo0.png">
+https://github.com/otrokov/kbot/tree/178f9a6677ce359e366542f92e97825a9cf6f2d2/doc/img
 
 ## Get password
 To login you’ll need to obtain the admin password and URL for the Argo CD instance:
@@ -34,6 +35,3 @@ Access the Argo CD  by logging in with the username **admin** and the password e
 
 
 
-
-[def]: /home/otrokovanton/argo.png "ArgoCD"
-[def2]: file:///home/otrokovanton/argo0.png
