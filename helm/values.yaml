@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: otrokov\kbot
-  tag: "v1.0.8-7d0354b-arm64"
+  tag: "latest"
   arch: amd64
 
 secret:
