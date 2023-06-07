@@ -34,7 +34,7 @@ jobs:
         run: make clean TARGETARCH=$TARGETARCH
 
   cd:
-    name: CD:
+    name: CD
     needs: ci
     runs-on: ubuntu-latest
 
