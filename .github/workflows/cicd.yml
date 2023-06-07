@@ -24,8 +24,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: otrokovanton
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: otrokov
+          password: ${{ secrets.GHUB_TOKEN }}
 
       - name: Build&Push
         env:
