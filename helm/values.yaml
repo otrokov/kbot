@@ -3,20 +3,16 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
   repository: otrokov\kbot
-  tag: "latest"
+  tag: "v1.0.9-ee5b6ed"
   arch: amd64
-
 secret:
   name: "kbot"
   tokenname: "TELE_TOKEN"
   tokenkey: "token"
-
 securityContext:
   privileged: true
-
 autoscaling:
   enabled: true
   minReplicas: 1
