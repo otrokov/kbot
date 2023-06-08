@@ -1,7 +1,7 @@
 APP := $(shell basename $(shell git remote get-url origin))
 REGISTRY := otrokov
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-TARGETOS=linux 
+TARGETOS=linux
 TARGETARCH =amd64
 IMAGE := ghcr.io/otrokov/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
 
