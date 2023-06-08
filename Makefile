@@ -1,16 +1,9 @@
 APP := $(shell basename $(shell git remote get-url origin))
-REGISTRY := otrokovanton
+REGISTRY := otrokov
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux 
 TARGETARCH=arm64
-linux:
-	${MAKE} build TARGETOS=linux TARGETARCH=${TARGETARCH}
-
-macos:
-	${MAKE} build TARGETOS=darwin TARGETARCH=${TARGETARCH}
-
-windows:
-	${MAKE} build TARGETOS=windows TARGETARCH=${TARGETARCH}
+IMAGE := ghcr.io/otrokov/kbot:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 format:
 	gofmt -s -w ./
@@ -25,10 +18,8 @@ get:
 	go get
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}  --build-arg TARGETARCH=${TARGETARCH}
-
-push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${IMAGE}
+	docker push ${IMAGE}
 
 
 build: format
@@ -36,5 +27,5 @@ build: format
 
 clean:
 	rm -rf kbot
-	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker rmi ${IMAGE}
 
