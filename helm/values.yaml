@@ -4,10 +4,10 @@
 
 replicaCount: 1
 image:
-  repository: otrokov\kbot
+  repository: "otrokov\kbot"
   tag: "v1.10.0-cce9638"
-  os: linux
-  arch: amd64
+  os: "linux"
+  arch: "amd64"
 secret:
   name: "kbot"
   tokenname: "TELE_TOKEN"
