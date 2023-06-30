@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: otrokov\kbot
-  tag: "v1.0.9-626c382"
+  tag: "v1.0.9-eac2c3a"
   os: "linux"
   arch: amd64
 secret:
