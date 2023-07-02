@@ -1,3 +1,0 @@
-GOOGLE_REGION  = "asia-east1-b"
-GOOGLE_PROJECT = "kbot-389211"
-GKE_NUM_NODES  = 1
