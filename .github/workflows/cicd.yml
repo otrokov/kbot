@@ -4,9 +4,7 @@ on: push
 
 env:
   TARGETARCH: amd64
-  strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+
 
 jobs:
   ci:
@@ -43,6 +41,10 @@ jobs:
     name: CD
     needs: ci
     runs-on: ${{ matrix.os }}
+    
+    strategy:
+     matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v3
