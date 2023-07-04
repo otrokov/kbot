@@ -9,11 +9,11 @@ env:
 jobs:
   ci:
     name: CI
-    runs-on: ${{ matrix.os }} 
+    runs-on: ${{ matrix.os1 }} 
  
      strategy:
        matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os1: [ubuntu-latest, macos-latest, windows-latest]
     
     steps:
                           
